@@ -12,6 +12,7 @@ body {
   background: black;
 }
 
+
 input {
   background: grey;
   font-size: 18px;
@@ -33,6 +34,7 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+  will-change: transform; /* Prevent FSL*/
 }
 
 .randomPizzaContainer {
