@@ -1,5 +1,47 @@
 ## Website Performance Optimization portfolio project
 
+#### 1. Steps to run the web application
+1.1 In a consile window run the following steps:
+
+a. cd ../ghyma9/frontend-nanodegree-mobile-portfolio
+
+b. python -m http.server 8080
+
+1.2 Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+
+c. cd ../ghyma9/frontend-nanodegree-mobile-portfolio
+
+d. ngrok http 8080
+
+#### 2. Outline of optimizations:
+2.1 index.html
+
+First we need to check the js and css files whethere they are required to be includd in the critical path or become parser blockers.
+We need to delay or avoid to download those files. Therefore the following files have been changed.
+
+    <noscript id="deferred-styles">
+      <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    </noscript>
+
+    <link href="css/print.css" rel="stylesheet" media="print">  <!-- Stop parser blocker -->
+
+    <script async src="http://www.google-analytics.com/analytics.js"></script>  <!-- Stop parser blocker -->
+    <script async src="js/perfmatters.js"></script>     <!-- Stop parser blocker -->
+
+
+2.2 views/js/main.js for pizza.html
+
+In order to fix the Janky code, we need to stop the css related statements,
+which create FSL and remove repeating code in loops. Based on these two dirctions,
+we need to fix the following methods:
+
+a. updatePositions - Fix this method when scroll the content.
+
+b. changePizzaSizes - Fix this method when change the pizza sizes.
+
+
+## Original Content
+
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository and inspect the code.
