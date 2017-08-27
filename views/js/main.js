@@ -16,6 +16,7 @@ Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
 
+
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -453,10 +454,13 @@ var resizePizzas = function(size) {
     switch(size) {
       case "1":
         newWidth = 25;
+        break;
       case "2":
         newWidth = 33.3;
+        break;
       case "3":
         newWidth = 50;
+        break;
       default:
         console.log("bug in sizeSwitcher");
     }
