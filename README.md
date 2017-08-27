@@ -1,6 +1,10 @@
 ## Website Performance Optimization portfolio project
 
 #### 1. Steps to run the web application
+
+Clone the code from:
+https://github.com/ghyma9/frontend-nanodegree-mobile-portfolio.git
+
 1.1 In a consile window run the following steps:
 
 a. cd ../ghyma9/frontend-nanodegree-mobile-portfolio
