@@ -192,15 +192,33 @@ module.exports = function(grunt) {
         image_resize: {
             resize: {
                 options: {
-                    width: 160,
-                    height: 80,
+                    width: 100,
+                    height: 75,
                     overwrite: true
                 },
                 files: {
+/**
                     'img/cam_be_like.jpg': 'src/img/cam_be_like.jpg',
-                    'views/images/pizzeria.jpg': 'src/img/pizzeria.jpg',
                     'img/mobilewebdev.jpg': 'src/img/mobilewebdev.jpg'
+                    'views/images/pizzeria.jpg': 'src/img/pizzeria.jpg'
+ **/
+                    'views/images/pizza.png': 'src/img/pizza.png'
                 }
+            }
+        },
+
+        critical: {
+            critical: {
+                options: {
+                    base: './',
+                    css: [
+                        'src/css/style.css'
+                    ],
+                    width: 320,
+                    height: 70
+                },
+                src: 'index.html',
+                dest: 'dist/css/critical.css'
             }
         },
 
@@ -246,6 +264,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-image-resize');
+    grunt.loadNpmTasks('grunt-citical');
 
     grunt.registerTask('dev', [
         'clean:dist',

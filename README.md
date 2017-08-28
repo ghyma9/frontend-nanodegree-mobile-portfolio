@@ -23,14 +23,14 @@ d. ngrok http 8080
 First we need to check the js and css files whethere they are required to be includd in the critical path or become parser blockers.
 We need to delay or avoid to download those files. Therefore the following files have been changed.
 
-    <noscript id="deferred-styles">
-      <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    </noscript>
-
     <link href="css/print.css" rel="stylesheet" media="print">  <!-- Stop parser blocker -->
 
     <script async src="http://www.google-analytics.com/analytics.js"></script>  <!-- Stop parser blocker -->
     <script async src="js/perfmatters.js"></script>     <!-- Stop parser blocker -->
+
+Download the Goole Font loader API, wegfontloaderjs, and load it at the end of the body.
+
+    <script src="js/webfontloader.js"></script>
 
 
 2.2 views/js/main.js for pizza.html
@@ -42,6 +42,28 @@ we need to fix the following methods:
 a. updatePositions - Fix this method when scroll the content.
 
 b. changePizzaSizes - Fix this method when change the pizza sizes.
+
+JavaScript execution improvement:
+
+a. In the resizePizzas method, change querySelector to getElementById.
+
+b. In the changePizzaSizes method, change querySelectorAll to getElementsByClassName
+
+c. In the changePizzaSizes method, move randomPizzaContainer.length out from the for statement.
+
+d. In the updatePositions method, change querySelectorAll to getElementsByClassName.
+
+e. In the updatePositions method, move phase definition out of the for loop.
+
+f. In the addEventListener method, change querySelector to getElementById.
+
+2.3 views/css/style.css for pizza.html
+
+In order to stop FSL and improve CSS speed, the class '.mover' has been
+optimized by adding the two properties as folloows:
+
+  will-change: transform;
+  transform: translateZ(0);
 
 
 ## Original Content
