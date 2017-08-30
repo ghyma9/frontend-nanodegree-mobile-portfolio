@@ -36,7 +36,9 @@ form {
   z-index: -1;
   will-change: transform; /* Prevent FSL*/
   transform: translateZ(0); /* Implemented by GUP */
+  -webkit-transform: translateZ(0);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .randomPizzaContainer {
